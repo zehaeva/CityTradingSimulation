@@ -31,7 +31,7 @@ namespace city_simulation
             tradeRoutes.Add(new TradeRoute(cities[4], cities[6], 90));
             tradeRoutes.Add(new TradeRoute(cities[3], cities[4], 135));
 
-            ViewWindow form = new ViewWindow();
+            ViewWindow form = new ViewWindow(tradeRoutes, cities);
 
             Application.EnableVisualStyles();
             Application.Run(form);

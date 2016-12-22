@@ -10,6 +10,7 @@ namespace city_simulation
         public City(string name)
         {
             _name = name;
+            _products = new List<Product>();
         }
 
         public List<Product> Products

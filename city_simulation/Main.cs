@@ -20,6 +20,12 @@ namespace city_simulation
             cities.Add(new City("Binghamton"));
             cities.Add(new City("Ithaca"));
 
+            foreach (City city in cities)
+            {
+                city.Products.Add(new Product("Food", 50, 50, -50));
+            }
+            cities[0].Products.Add(new Product("Iron", 50, 50, 50));
+
             tradeRoutes.Add(new TradeRoute(cities[0], cities[1], 45));
             tradeRoutes.Add(new TradeRoute(cities[0], cities[2], 90));
             tradeRoutes.Add(new TradeRoute(cities[0], cities[3], 90));

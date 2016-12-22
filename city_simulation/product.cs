@@ -14,9 +14,12 @@ namespace city_simulation
         private int _stockpile;
         private int _production_rate;
 
-        public Product(string name)
+        public Product(string name, int cost, int stockpile, int productionRate)
         {
             _name = name;
+            _cost = cost;
+            _stockpile = stockpile;
+            _production_rate = productionRate;
         }
 
         public string Name

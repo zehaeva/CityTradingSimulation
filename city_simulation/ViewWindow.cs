@@ -14,7 +14,7 @@ namespace city_simulation
 
         public ViewWindow(List<TradeRoute> tradeRoutes, List<City> cities)
         {
-            Rectangle screen = Screen.FromControl(this).Bounds;
+            var screen = Screen.FromControl(this).Bounds;
             Bounds = new Rectangle((screen.Width / 2) - 400 , (screen.Height / 2) - 300, 800, 600);
             BackColor = Color.White;
             // FormBorderStyle = FormBorderStyle.None;
@@ -25,7 +25,7 @@ namespace city_simulation
             _time_elapsed = 0;
 
             _timer = new Timer();
-            _timer.Interval = 1000 / 60;
+            _timer.Interval = 1000 / 150;
             _timer.Enabled = true;
             _timer.Tick += new EventHandler(tick);
 
@@ -36,7 +36,7 @@ namespace city_simulation
         {
             if (_time_elapsed == 20)
             {
-                foreach (City city in _cities)
+                foreach (var city in _cities)
                 {
                     city.nextTurn();
                 }
@@ -53,7 +53,9 @@ namespace city_simulation
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            Graphics g = e.Graphics;
+            var g = e.Graphics;
+
+            g.Clear(Color.White);
 
             float y = 0;
 

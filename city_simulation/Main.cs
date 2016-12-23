@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Drawing;
-using System.Security.Policy;
 using System.Windows.Forms;
 
 namespace city_simulation
@@ -20,11 +18,19 @@ namespace city_simulation
             cities.Add(new City("Binghamton"));
             cities.Add(new City("Ithaca"));
 
-            foreach (City city in cities)
+            var food = new Item("Food");
+            var iron = new Item("Iron");
+
+            foreach (var city in cities)
             {
-                city.Products.Add(new Product("Food", 50, 50, -50));
+                city.Products.Add(new Product(food, 50, 50, -50));
             }
-            cities[0].Products.Add(new Product("Iron", 50, 50, 50));
+            cities[0].Products.Add(new Product(iron, 50, 50, 50));
+
+            cities[0].Neighbors.Add(cities[1]);
+            cities[0].Neighbors.Add(cities[2]);
+            cities[0].Neighbors.Add(cities[3]);
+            cities[0].Neighbors.Add(cities[5]);
 
             tradeRoutes.Add(new TradeRoute(cities[0], cities[1], 45));
             tradeRoutes.Add(new TradeRoute(cities[0], cities[2], 90));
@@ -37,7 +43,7 @@ namespace city_simulation
             tradeRoutes.Add(new TradeRoute(cities[4], cities[6], 90));
             tradeRoutes.Add(new TradeRoute(cities[3], cities[4], 135));
 
-            ViewWindow form = new ViewWindow(tradeRoutes, cities);
+            var form = new ViewWindow(tradeRoutes, cities);
 
             Application.EnableVisualStyles();
             Application.Run(form);

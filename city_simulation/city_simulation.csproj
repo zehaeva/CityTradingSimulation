@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="city.cs" />
+    <Compile Include="Item.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="product.cs" />
     <Compile Include="traderoute.cs" />
